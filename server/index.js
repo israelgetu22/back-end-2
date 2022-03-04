@@ -14,6 +14,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/api/houses", getHouses);
+
 app.post("/api/houses", createNewHouse);
 app.delete("/api/houses/:id", deleteHouse);
 app.put("/api/houses/:id", updateHouse);

@@ -1,4 +1,3 @@
-const vary = require("vary");
 const houses = require("./db.json");
 let globalID = 4;
 
@@ -6,7 +5,6 @@ module.exports = {
   getHouses: (req, res) => {
     res.status(200).send(houses);
   },
-
   createNewHouse: (req, res) => {
     let newHouse = req.body;
 
@@ -17,6 +15,20 @@ module.exports = {
     res.status(200).send(houses);
     globalID++;
   },
+
+  // createNewHouse: (req, res) => {
+  //   const { address, price, imageURL } = res.query;
+  //   let newHouse = {
+  //     address,
+  //     price,
+  //     imageURL,
+  //     id: globalID,
+  //   };
+  //   houses.push(newHouse);
+
+  //   res.status(200).send(houses);
+  //   globalID++;
+  // },
 
   deleteHouse: (req, res) => {
     let index = houses.findIndex((houses) => +houses.id === +req.params.id);
